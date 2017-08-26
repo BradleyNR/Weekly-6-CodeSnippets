@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <h1>Login Here!</h1>
+    <!-- Error message graphic -->
+    {{#if messages}}
+        {{#each messages}}
+        <div class="alert alert-danger" role="alert">
+<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+<span class="sr-only">Error:</span>
+{{this}}
+</div>
+        {{/each}}
+    {{/if}}
+    <!-- End Error message graphic -->
+    <form class="" action="/login" method="post">
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="text" class="form-control" name="username" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+
+      <input class="btn btn-primary" type="submit" value="Login">
+    </form>
+
+    <p>No Login? <a href="/signup">Click here to sign up!</a></p>
+  </div>
+</div>
