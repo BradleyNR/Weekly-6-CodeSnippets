@@ -1,4 +1,18 @@
 <div class="jumbotron">
-  <h1>This is the main page</h1>
-  <h2>Code snippets will go on tis page</h2>
+  <h1>Sniperator</h1>
+  <h2>Code city, baby!</h2>
+  <br>
+  <a class="col-md-2 btn btn-danger" href="/add">Create Snippet</a>
 </div>
+
+{{#each snippet}}
+<!-- {{#matchId snippet.user userid}} -->
+    <div class="col-md-4 well text-center">
+    <h2><strong>{{title}}</strong></h2>
+    <h3>{{body}}</h3>
+    <h3>{{notes}}</h3>
+    <h3>{{language}}</h3>
+    <h3>{{tags}}</h3>
+    </div>
+<!-- {{/matchId}} -->
+{{/each}}

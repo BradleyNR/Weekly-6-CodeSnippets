@@ -7,6 +7,7 @@ const LoginController = require('./controllers/LoginController');
 //this works and is fine
 const requireLogin = function (req, res, next) {
   if (req.user) {
+    console.log('this is the id of the session', req.user._id);
     next();
   } else {
     res.redirect('/login');
@@ -20,6 +21,8 @@ module.exports = function(app){
   //requires login to see these pages
   homeRouter.use(requireLogin);
   homeRouter.get('/', HomeController.index);
+  homeRouter.get('/add', HomeController.add);
+  homeRouter.post('/create', HomeController.create);
 
   loginRouter.get('/login', LoginController.login);
   loginRouter.get('/signup', LoginController.signup);

@@ -12,8 +12,25 @@ const User = require('./models/user');
 //express
 const app = express();
 
+
+//custom handlebars comparison
+// var hbs = exphbs.create({
+//   // Specify helpers which are only registered on this instance.
+//   helpers: {
+//     matchId: function(id1, id2, options) {
+//       if (id1 === id2) {
+//         console.log('worked');
+//         return options.fn(this)
+//       }
+//       console.log('failed');
+//       return options.inverse(this);
+//     }
+//   },
+//   defaultLayout: 'main',
+//   partialsDir: ['views/']
+// });
 //views
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 //database
 var database = process.env.MONGODB_URI || 'mongodb://localhost:27017/test';
@@ -68,7 +85,6 @@ passport.deserializeUser(function(id, done) {
         done(err, user);
     });
 });
-
 
 app.use(passport.initialize());
 app.use(passport.session());
