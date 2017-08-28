@@ -5,22 +5,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <form action="/edit" class="input-group row" method="post">
-              <input type="text" name="title" class="form-control form-control-lg" placeholder="Title">
+      <form action="/{{_id}}/changeitem" class="input-group row" method="post">
+              <input type="text" name="title" class="form-control form-control-lg" value="{{title}}">
               <br>
               <br>
-              <textarea name="bodytext" rows="15" cols="100" placeholder="Please add code here!"></textarea>
+              <textarea name="bodytext" rows="15" cols="100" value="{{body}}"></textarea>
               <br>
-              <input type="text" name="notes" class="form-control form-control-lg" placeholder="Notes">
-              <br>
-              <br>
-              <input type="text" name="language" class="form-control form-control-lg" placeholder="Language">
+              <input type="text" name="notes" class="form-control form-control-lg" value="{{notes}}">
               <br>
               <br>
-              <input type="text" name="tags" class="form-control form-control-lg" placeholder="Tags">
+              <input type="text" name="language" class="form-control form-control-lg" value="{{language}}">
               <br>
               <br>
-              <button type="submit" class="col-md-12 btn btn-primary" type="button">Create</button>
+              <input type="text" name="tags" class="form-control form-control-lg" value="{{tags}}">
+              <br>
+              <br>
+              <button type="submit" class="col-md-12 btn btn-primary" type="button">Update</button>
       </form>
     </div>
   </div>

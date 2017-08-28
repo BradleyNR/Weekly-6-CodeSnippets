@@ -41,6 +41,23 @@ const HomeController = {
     req.session.destroy(function(){
       res.redirect('/login');
     });
+  },
+  search: function(req, res){
+    res.render('search/search');
+  },
+  findcode: function(req, res){
+    let entryId = req.params.id;
+    console.log(entryId);
+    Snippet.findOne({"_id": entryId}).then(function(entry){
+      //passing data in as below, do not need dot noatation in handlebars
+      res.render('edit/edit', entry);
+    })
+  },
+  update: function(req, res){
+    let entryId = req.params.id;
+    Snippet.findByIdAndUpdate(entryId, {$set: {title: req.body.title, body: req.body.bodytext, notes: req.body.notes, language: req.body.language, tags: req.body.tags}}).then(function(){
+        res.redirect('/');
+    })
   }
 };
 
