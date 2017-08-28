@@ -42,9 +42,6 @@ const HomeController = {
       res.redirect('/login');
     });
   },
-  search: function(req, res){
-    res.render('search/search');
-  },
   findcode: function(req, res){
     let entryId = req.params.id;
     console.log(entryId);
@@ -64,6 +61,14 @@ const HomeController = {
     Snippet.findOne({"_id": entryId}).then(function(entry){
       //passing data in as below, do not need dot noatation in handlebars
       res.render('search/view', entry);
+    })
+  },
+  language: function(req, res){
+    let searchTerm = req.body.langsearch;
+    console.log('language running: ', searchTerm);
+    Snippet.find({"language": searchTerm}).then(function(entry){
+      console.log("this is the entry: ", entry);
+      res.render('index/mainpage', {snippet: entry});
     })
   }
 };

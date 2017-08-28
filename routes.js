@@ -22,12 +22,12 @@ module.exports = function(app){
   homeRouter.use(requireLogin);
   homeRouter.get('/', HomeController.index);
   homeRouter.get('/add', HomeController.add);
-  homeRouter.get('/search', HomeController.search);
   homeRouter.post('/create', HomeController.create);
   homeRouter.get('/:id/delete', HomeController.delete);
   homeRouter.get('/:id/update', HomeController.findcode);
   homeRouter.post('/:id/changeitem', HomeController.update);
   homeRouter.get('/:id/view', HomeController.view);
+  homeRouter.post('/languagesearch', HomeController.language);
   homeRouter.get('/logout', HomeController.logout);
 
   loginRouter.get('/login', LoginController.login);
