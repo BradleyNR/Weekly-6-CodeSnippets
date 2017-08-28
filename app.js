@@ -29,8 +29,9 @@ const app = express();
 //   defaultLayout: 'main',
 //   partialsDir: ['views/']
 // });
+
 //views
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 //database
 var database = process.env.MONGODB_URI || 'mongodb://localhost:27017/test';

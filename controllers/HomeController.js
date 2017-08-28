@@ -30,6 +30,17 @@ const HomeController = {
     newSnippet.save(function(){
       res.redirect('/');
     })
+  },
+  delete: function(req, res){
+    let entryId = req.params.id;
+    Snippet.deleteOne({"_id": entryId}).then(function(){
+      res.redirect('/');
+    })
+  },
+  logout: function(req, res){
+    req.session.destroy(function(){
+      res.redirect('/login');
+    });
   }
 };
 

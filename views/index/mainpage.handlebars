@@ -1,4 +1,5 @@
 <div class="jumbotron">
+  <a href="/logout" class="btn btn-danger pull-right">Logout</a>
   <h1>Sniperator</h1>
   <h2>Code city, baby!</h2>
   <br>
@@ -6,13 +7,15 @@
 </div>
 
 {{#each snippet}}
-<!-- {{#matchId snippet.user userid}} -->
     <div class="col-md-4 well text-center">
-    <h2><strong>{{title}}</strong></h2>
-    <h3>{{body}}</h3>
-    <h3>{{notes}}</h3>
-    <h3>{{language}}</h3>
-    <h3>{{tags}}</h3>
+      <h2><strong>{{title}}</strong></h2>
+      <h3>{{body}}</h3>
+      <h3>{{notes}}</h3>
+      <h3>{{language}}</h3>
+      <h3>{{tags}}</h3>
+        <div class="row">
+          <a class="col-md-6 btn btn-warning" href="/{{_id}}/update">Edit</a>
+          <a class="col-md-6 btn btn-danger" href="/{{_id}}/delete">Delete</a>
+        </div>
     </div>
-<!-- {{/matchId}} -->
 {{/each}}
