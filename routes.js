@@ -27,6 +27,7 @@ module.exports = function(app){
   homeRouter.get('/:id/delete', HomeController.delete);
   homeRouter.get('/:id/update', HomeController.findcode);
   homeRouter.post('/:id/changeitem', HomeController.update);
+  homeRouter.get('/:id/view', HomeController.view);
   homeRouter.get('/logout', HomeController.logout);
 
   loginRouter.get('/login', LoginController.login);

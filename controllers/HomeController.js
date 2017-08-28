@@ -58,6 +58,13 @@ const HomeController = {
     Snippet.findByIdAndUpdate(entryId, {$set: {title: req.body.title, body: req.body.bodytext, notes: req.body.notes, language: req.body.language, tags: req.body.tags}}).then(function(){
         res.redirect('/');
     })
+  },
+  view: function(req, res){
+    let entryId = req.params.id;
+    Snippet.findOne({"_id": entryId}).then(function(entry){
+      //passing data in as below, do not need dot noatation in handlebars
+      res.render('search/view', entry);
+    })
   }
 };
 
