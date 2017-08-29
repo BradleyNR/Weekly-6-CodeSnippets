@@ -28,6 +28,7 @@ module.exports = function(app){
   homeRouter.post('/:id/changeitem', HomeController.update);
   homeRouter.get('/:id/view', HomeController.view);
   homeRouter.post('/languagesearch', HomeController.language);
+  homeRouter.post('/tagsearch', HomeController.tags);
   homeRouter.get('/logout', HomeController.logout);
 
   loginRouter.get('/login', LoginController.login);

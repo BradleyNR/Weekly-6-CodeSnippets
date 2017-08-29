@@ -1,0 +1,51 @@
+.main-header {
+  background-color: #81b9bf;
+  text-align: center;
+}
+
+.jumbotron h1.main-header-one {
+  font-size: 110px;
+  padding-bottom: 30px;
+  border-bottom: 3px double #003d33;
+  width: 75%;
+  margin: auto;
+}
+
+.logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+}
+
+.well {
+  background-color: #81b9bf;
+}
+
+.search-area {
+  padding: auto;
+}
+
+.search-area input {
+  height: 33px;
+}
+
+.search-area button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.snip-head {
+  font-weight: bold;
+  border-bottom: 2px solid #003d33;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+.snip-code-title {
+ text-align: left;
+}
+
+.well-code-body {
+  border: 2px solid #003d33;
+}

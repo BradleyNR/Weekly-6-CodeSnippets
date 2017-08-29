@@ -1,34 +1,51 @@
-<div class="jumbotron">
-  <a href="/logout" class="btn btn-danger pull-right">Logout</a>
-  <h1>Sniperator</h1>
+<div class="jumbotron main-header">
+  <a class="btn btn-danger logout" href="/logout">Logout</a>
+  <h1 class="main-header-one">Sniperator</h1>
   <h2>Code city, baby!</h2>
   <br>
-  <a class="col-md-2 btn btn-danger" href="/add">Create Snippet</a>
-  <a class="col-md-2 btn btn-success" href="/">View All</a>
+  <a class="col-md-2 btn btn-danger col-md-offset-4" href="/add">Create Snippet</a>
+  <a class="col-md-2 btn btn-success" href="/">My Snippets</a>
 
 </div>
 
-<div class="well">
-  <h3>Code Search</h3>
-  <form action="/languagesearch" class="input-group col-md-12" method="post">
-          <input type="text" name="langsearch" class="col-md-6"name="" value="">
-          <button type="submit" class="col-md-2 btn btn-primary" type="button">Search</button>
-  </form>
-</div>
-
-{{#each snippet}}
-    <div class="col-md-4 well text-center">
-      <h2><strong>Title: {{title}}</strong></h2>
-      <h3>Snip: {{body}}</h3>
-      <h4>Notes: {{notes}}</h4>
-      <h4>Language: {{language}}</h4>
-      <h5>Tags: {{tags}}</h5>
-        <div class="row">
-          <a class="col-md-6 btn btn-warning" href="/{{_id}}/update">Edit</a>
-          <a class="col-md-6 btn btn-danger" href="/{{_id}}/delete">Delete</a>
-          <br>
-          <br>
-          <a class="col-md-12 btn btn-success" href="/{{_id}}/view">View this Snippet</a>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="well search-area">
+      <form action="/languagesearch" class="input-group col-md-8 col-md-offset-2" method="post">
+        <h3 >Code Search</h3>
+        <h4>Language:</h4>
+              <input type="text" name="langsearch" class="col-md-10" value="" placeholder="Language Search">
+              <button type="submit" class="col-md-2 btn btn-primary" type="button">Search</button>
+      </form>
+      <form action="/tagsearch" class="input-group col-md-8 col-md-offset-2" method="post">
+        <h4>Tags:</h4>
+              <input type="text" name="tagsearch" class="col-md-10" value="" placeholder="Tag Search">
+              <button type="submit" class="col-md-2 btn btn-primary" type="button">Search</button>
+      </form>
     </div>
-{{/each}}
+  </div>
+</div>
+
+<div class="container">
+    <div class="clearfix">
+      {{#each snippet}}
+          <div class="col-md-4 well text-center clearfix">
+            <h2 class="snip-head">{{title}}</h2>
+            <h3 class="snip-code-title">CODE:</h3>
+            <div class="well well-code-body">
+              <h3>{{body}}</h3>
+            </div>
+            <h4>Notes: {{notes}}</h4>
+            <h4>Language: {{language}}</h4>
+            <h5>Tags: {{tags}}</h5>
+              <div class="row">
+                <a class="col-md-6 btn btn-warning" href="/{{_id}}/update">Edit</a>
+                <a class="col-md-6 btn btn-danger" href="/{{_id}}/delete">Delete</a>
+                <br>
+                <br>
+                <a class="col-md-12 btn btn-success" href="/{{_id}}/view">View this Snippet</a>
+              </div>
+          </div>
+      {{/each}}
+    </div>
+</div>

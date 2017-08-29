@@ -4,6 +4,7 @@ const routes = require('./routes');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
+const path = require('path');
 const passport = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       session = require('express-session'),
@@ -12,24 +13,8 @@ const User = require('./models/user');
 //express
 const app = express();
 
-
-//custom handlebars comparison
-// var hbs = exphbs.create({
-//   // Specify helpers which are only registered on this instance.
-//   helpers: {
-//     matchId: function(id1, id2, options) {
-//       if (id1 === id2) {
-//         console.log('worked');
-//         return options.fn(this)
-//       }
-//       console.log('failed');
-//       return options.inverse(this);
-//     }
-//   },
-//   defaultLayout: 'main',
-//   partialsDir: ['views/']
-// });
-
+//css
+app.use('/static', express.static(path.join(__dirname, 'public')));
 //views
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');

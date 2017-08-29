@@ -7,7 +7,8 @@ const snippetSchema = new mongoose.Schema({
   body: {type: String, required: true},
   notes: String,
   language: {type: String, required: true},
-  tags: Array,
+  //white space trim
+  tags: [{type: String, trim: true}],
   user: String
 });
 const Snippet = mongoose.model('Snippet', snippetSchema)

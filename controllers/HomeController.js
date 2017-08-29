@@ -26,7 +26,8 @@ const HomeController = {
     let notes = req.body.notes;
     let language = req.body.language;
     let tags = req.body.tags;
-    let newSnippet = new Snippet({title: title, body: body, notes: notes, language: language, tags: tags, user: req.user._id});
+    let tagsArr = tags.split(',');
+    let newSnippet = new Snippet({title: title, body: body, notes: notes, language: language, tags: tagsArr, user: req.user._id});
     newSnippet.save(function(){
       res.redirect('/');
     })
@@ -52,7 +53,9 @@ const HomeController = {
   },
   update: function(req, res){
     let entryId = req.params.id;
-    Snippet.findByIdAndUpdate(entryId, {$set: {title: req.body.title, body: req.body.bodytext, notes: req.body.notes, language: req.body.language, tags: req.body.tags}}).then(function(){
+    let tags = req.body.tags.trim();
+    let tagsArr = tags.split(',');
+    Snippet.findByIdAndUpdate(entryId, {$set: {title: req.body.title, body: req.body.bodytext, notes: req.body.notes, language: req.body.language, tags: tagsArr}}).then(function(){
         res.redirect('/');
     })
   },
@@ -64,10 +67,17 @@ const HomeController = {
     })
   },
   language: function(req, res){
+    let userId = req.user._id;
     let searchTerm = req.body.langsearch;
-    console.log('language running: ', searchTerm);
-    Snippet.find({"language": searchTerm}).then(function(entry){
-      console.log("this is the entry: ", entry);
+    //finds snippets that have the correct user ID and that have the search term included in the language key
+    Snippet.find({$and: [{user: userId},{language: {$in: [searchTerm]}}]}).then(function(entry){
+      res.render('index/mainpage', {snippet: entry});
+    })
+  },
+  tags: function(req, res){
+    let userId = req.user._id;
+    let tagSearch = req.body.tagsearch;
+    Snippet.find({$and: [{user: userId},{tags: {$in: [tagSearch]}}]}).then(function(entry){
       res.render('index/mainpage', {snippet: entry});
     })
   }
