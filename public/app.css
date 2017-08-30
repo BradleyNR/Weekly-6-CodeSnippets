@@ -1,29 +1,32 @@
 .main-header {
-  background-color: #81b9bf;
-  text-align: center;
+  height: 130px;
 }
 
-.jumbotron h1.main-header-one {
-  font-size: 110px;
-  padding-bottom: 30px;
-  border-bottom: 3px double #003d33;
+.main-header-one {
+  font-size: 60px;
+  padding-bottom: 15px;
   width: 75%;
-  margin: auto;
 }
 
 .logout {
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 0;
-  width: 100px;
+  width: 70px;
+  border-radius: 100px;
 }
 
 .well {
   background-color: #81b9bf;
 }
 
+.well-code-body {
+  background-color: #FFFFFF;
+}
+
 .search-area {
-  padding: auto;
+  height: 260px;
+  /*border-radius: 50px;*/
 }
 
 .search-area input {
@@ -33,6 +36,11 @@
 .search-area button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.snippet-block {
+  border-radius: 25px;
+  background-color: #81b9bf;
 }
 
 .snip-head {
@@ -47,5 +55,18 @@
 }
 
 .well-code-body {
-  border: 2px solid #003d33;
+  border: 1px solid #003d33;
+}
+
+
+
+/****LOGIN PAGE****/
+
+.jumbotron h1.main-header-login {
+  font-size: 100px;
+}
+
+.login-header {
+  background-color: #81b9bf;
+  text-align: center;
 }
